@@ -1,0 +1,12 @@
+server:
+  port: 18001
+spring:
+  application:
+    name: demo-mybatis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/practice?serverTimezone=UTC
+    username: root
+    password: Soldier@53
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
