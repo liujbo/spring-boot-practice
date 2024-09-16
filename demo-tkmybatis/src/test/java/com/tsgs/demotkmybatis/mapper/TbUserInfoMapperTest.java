@@ -1,7 +1,7 @@
 package com.tsgs.demotkmybatis.mapper;
 
 import com.alibaba.fastjson2.JSON;
-import com.tsgs.demotkmybatis.entity.UserInfo;
+import com.tsgs.demotkmybatis.entity.TbUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,36 +15,36 @@ import java.util.List;
 
 @Slf4j
 @SpringBootTest
-class UserInfoMapperTest {
+class TbUserInfoMapperTest {
 
     @Autowired
     private UserInfoMapper userInfoMapper;
 
     @BeforeEach
     void setUp() {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserNo("293001");
-        userInfo.setUserName("奥巴马");
-        userInfo.setUserGender("1");
-        userInfo.setUserBirthday(new Date());
-        userInfo.setUserContact("23232323");
-        userInfoMapper.insert(userInfo);
+        TbUserInfo tbUserInfo = new TbUserInfo();
+        tbUserInfo.setUserNo("293001");
+        tbUserInfo.setUserName("奥巴马");
+        tbUserInfo.setUserGender("1");
+        tbUserInfo.setUserBirthday(new Date());
+        tbUserInfo.setUserContact("23232323");
+        userInfoMapper.insert(tbUserInfo);
     }
 
     @Test
     public void testFindAll() {
-        List<UserInfo> userInfoList = userInfoMapper.selectAll();
-        Assert.notEmpty(userInfoList, "用户信息为空");
-        log.info("查询全部用户信息 [userInfoList]  = {}", JSON.toJSONString(userInfoList));
+        List<TbUserInfo> tbUserInfoList = userInfoMapper.selectAll();
+        Assert.notEmpty(tbUserInfoList, "用户信息为空");
+        log.info("查询全部用户信息 [userInfoList]  = {}", JSON.toJSONString(tbUserInfoList));
     }
 
     @Test
     public void testFindByParam() {
-        Example example = new Example(UserInfo.class);
+        Example example = new Example(TbUserInfo.class);
         example.createCriteria().andEqualTo("userNo", "293001");
 
-        List<UserInfo> userInfoList = userInfoMapper.selectByExample(example);
-        Assert.notEmpty(userInfoList, "用户信息为空");
-        log.info("根据条件查询用户列表 [userInfoList]  = {}", JSON.toJSONString(userInfoList));
+        List<TbUserInfo> tbUserInfoList = userInfoMapper.selectByExample(example);
+        Assert.notEmpty(tbUserInfoList, "用户信息为空");
+        log.info("根据条件查询用户列表 [userInfoList]  = {}", JSON.toJSONString(tbUserInfoList));
     }
 }

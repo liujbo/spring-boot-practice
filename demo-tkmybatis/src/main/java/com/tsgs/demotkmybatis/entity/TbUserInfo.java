@@ -2,13 +2,20 @@ package com.tsgs.demotkmybatis.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tb_user_info")
-public class UserInfo {
+public class TbUserInfo {
 
     /**
      * 自增主键ID
@@ -59,68 +66,4 @@ public class UserInfo {
      */
     @Column(name = "user_company_address")
     private String userCompanyAddress;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserNo() {
-        return userNo;
-    }
-
-    public void setUserNo(String userNo) {
-        this.userNo = userNo;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserGender() {
-        return userGender;
-    }
-
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
-    }
-
-    public Date getUserBirthday() {
-        return userBirthday;
-    }
-
-    public void setUserBirthday(Date userBirthday) {
-        this.userBirthday = userBirthday;
-    }
-
-    public String getUserContact() {
-        return userContact;
-    }
-
-    public void setUserContact(String userContact) {
-        this.userContact = userContact;
-    }
-
-    public String getUserHomeAddress() {
-        return userHomeAddress;
-    }
-
-    public void setUserHomeAddress(String userHomeAddress) {
-        this.userHomeAddress = userHomeAddress;
-    }
-
-    public String getUserCompanyAddress() {
-        return userCompanyAddress;
-    }
-
-    public void setUserCompanyAddress(String userCompanyAddress) {
-        this.userCompanyAddress = userCompanyAddress;
-    }
 }

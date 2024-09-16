@@ -1,1 +1,14 @@
-spring.application.name=demo-tkmybatis
+server:
+  port: 18002
+spring:
+  application:
+    name: demo-tkmybatis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/practice?serverTimezone=UTC
+    username: root
+    password: Soldier@53
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/*.xml

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsgs.demomybatis.mapper.UserInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.tsgs.demomybatis.entity.UserInfo">
+        <result column="id" property="id"/>
+        <result column="user_no" property="userNo"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_gender" property="userGender"/>
+        <result column="user_birthday" property="userBirthday"/>
+        <result column="user_contact" property="userContact"/>
+        <result column="user_home_address" property="userHomeAddress"/>
+        <result column="user_company_address" property="userCompanyAddress"/>
+    </resultMap>
+
+    <sql id="baseColumn">
+        id,user_no,user_name,user_gender,user_birthday,user_contact,user_home_address,user_company_address
+    </sql>
+
+    <insert id="insertUserInfo" parameterType="com.tsgs.demomybatis.entity.UserInfo">
+        insert into tb_user_info(user_no, user_name, user_gender, user_birthday, user_contact, user_home_address,
+                                        user_company_address) value (#{userNo}, #{userName}, #{userGender},
+                                                                     #{userBirthday},
+                                                                     #{userContact}, #{userHomeAddress},
+                                                                     #{userCompanyAddress})
+    </insert>
+
+    <update id="updateUserInfo" parameterType="com.tsgs.demomybatis.entity.UserInfo">
+        update tb_user_info
+        <set>
+            <if test="userNo != null">user_no = #{userNo},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="userGender != null">user_gender = #{userGender},</if>
+            <if test="userBirthday != null">user_birthday = #{userBirthday},</if>
+            <if test="userContact != null">user_contact = #{userContact},</if>
+            <if test="userHomeAddress != null">user_home_address = #{userHomeAddress},</if>
+            <if test="userCompanyAddress != null">user_company_address = #{userCompanyAddress},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteUserInfo" parameterType="com.tsgs.demomybatis.entity.UserInfo">
+        delete
+        from tb_user_info
+        where id = #{id}
+    </delete>
+
+    <select id="getUserInfoById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="baseColumn"/>
+        from tb_user_info
+        where id = #{id}
+    </select>
+
+    <select id="selectUserInfo" parameterType="com.tsgs.demomybatis.entity.UserInfo" resultMap="BaseResultMap">
+        select
+        <include refid="baseColumn"/>
+        from tb_user_info
+        <where>
+            <if test="userNo != null and userNo != ''">
+                and user_no = #{userNo}
+            </if>
+            <if test="userName != null and userName != ''">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+            <if test="userGender != null and userGender != ''">
+                and user_gender = #{userGender}
+            </if>
+            <if test="userHomeAddress != null and userHomeAddress != ''">
+                and user_home_address like concat('%',#{userHomeAddress},'%')
+            </if>
+            <if test="userCompanyAddress != null and userCompanyAddress != ''">
+                and user_company_address like concat('%',#{userCompanyAddress},'%')
+            </if>
+        </where>
+    </select>
+</mapper>
+

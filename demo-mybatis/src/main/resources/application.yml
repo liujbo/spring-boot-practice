@@ -9,4 +9,4 @@ spring:
     username: root
     password: Soldier@53
 mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:mappers/*.xml
