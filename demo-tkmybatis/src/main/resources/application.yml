@@ -1,5 +1,5 @@
 server:
-  port: 18002
+  port: 18003
 spring:
   application:
     name: demo-tkmybatis
