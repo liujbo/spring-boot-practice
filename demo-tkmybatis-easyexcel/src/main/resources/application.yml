@@ -1,0 +1,17 @@
+server:
+  port: 18004
+spring:
+  application:
+    name: demo-tkmybatis-easyexcel
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/practice?serverTimezone=UTC
+    username: root
+    password: Soldier@53
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mappers/*.xml
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss:SSS
