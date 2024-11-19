@@ -5,6 +5,7 @@ import com.tsgs.demotkmybatiseasyexcel.entity.TbUserInfo;
 import com.tsgs.demotkmybatiseasyexcel.listener.UserInfoListener;
 import com.tsgs.demotkmybatiseasyexcel.mapper.UserInfoMapper;
 import com.tsgs.demotkmybatiseasyexcel.service.UserInfoService;
+import com.tsgs.demotkmybatiseasyexcel.util.AjaxResult;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -51,7 +52,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public List<TbUserInfo> selectUserInfo(TbUserInfo userInfo) {
+    public AjaxResult selectUserInfo(TbUserInfo userInfo) {
         Example example = new Example(TbUserInfo.class);
         Example.Criteria criteria = example.createCriteria();
         if (StringUtils.hasLength(userInfo.getUserName())) {
@@ -60,6 +61,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (StringUtils.hasLength(userInfo.getUserHomeAddress())) {
             criteria.andLike("userHomeAddress", "%" + userInfo.getUserHomeAddress() + "%");
         }
-        return userInfoMapper.selectByExample(example);
+        List<TbUserInfo> tbUserInfoList = userInfoMapper.selectByExample(example);
+        return AjaxResult.success(tbUserInfoList);
     }
 }

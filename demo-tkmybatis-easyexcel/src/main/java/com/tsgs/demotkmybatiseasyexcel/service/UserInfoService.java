@@ -1,10 +1,9 @@
 package com.tsgs.demotkmybatiseasyexcel.service;
 
 import com.tsgs.demotkmybatiseasyexcel.entity.TbUserInfo;
+import com.tsgs.demotkmybatiseasyexcel.util.AjaxResult;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 public interface UserInfoService {
 
@@ -29,5 +28,5 @@ public interface UserInfoService {
      * @param userInfo 用户信息条件对象
      * @return 用户信息列表
      */
-    List<TbUserInfo> selectUserInfo(TbUserInfo userInfo);
+    AjaxResult selectUserInfo(TbUserInfo userInfo);
 }

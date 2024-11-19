@@ -5,6 +5,7 @@ import com.tsgs.demotkmybatiseasyexcel.annotation.LogExecutionTime;
 import com.tsgs.demotkmybatiseasyexcel.annotation.LogRecord;
 import com.tsgs.demotkmybatiseasyexcel.entity.TbUserInfo;
 import com.tsgs.demotkmybatiseasyexcel.service.UserInfoService;
+import com.tsgs.demotkmybatiseasyexcel.util.AjaxResult;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -27,10 +28,10 @@ public class UserInfoController {
     @PostMapping("/import")
     @LogRecord(methodName = "用户信息导入")
     @LogExecutionTime
-    public String userInfoImport(@RequestParam("file") MultipartFile file) {
+    public AjaxResult userInfoImport(@RequestParam("file") MultipartFile file) {
         log.info("用户信息导入测试");
         userInfoService.userInfoImport(file);
-        return "导入成功";
+        return AjaxResult.success();
     }
 
     /**
@@ -53,7 +54,7 @@ public class UserInfoController {
      */
     @PostMapping("list")
     @LogExecutionTime
-    public Object userInfoList(@RequestBody TbUserInfo userInfo) {
+    public AjaxResult userInfoList(@RequestBody TbUserInfo userInfo) {
         log.info("查询用户信息列表传入参数：{}", JSON.toJSONString(userInfo));
         return userInfoService.selectUserInfo(userInfo);
     }
