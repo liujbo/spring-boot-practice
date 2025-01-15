@@ -53,6 +53,7 @@ public class UserInfoController {
      * @return 用户信息列表
      */
     @PostMapping("list")
+    @LogRecord(methodName = "用户信息查询")
     @LogExecutionTime
     public AjaxResult userInfoList(@RequestBody TbUserInfo userInfo) {
         log.info("查询用户信息列表传入参数：{}", JSON.toJSONString(userInfo));
