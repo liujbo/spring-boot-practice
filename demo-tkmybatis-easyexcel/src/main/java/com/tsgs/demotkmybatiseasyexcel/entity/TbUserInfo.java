@@ -3,12 +3,17 @@ package com.tsgs.demotkmybatiseasyexcel.entity;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.format.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
-@Data
+
+@Setter
+@Getter
 @Table(name = "tb_user_info")
 public class TbUserInfo {
 

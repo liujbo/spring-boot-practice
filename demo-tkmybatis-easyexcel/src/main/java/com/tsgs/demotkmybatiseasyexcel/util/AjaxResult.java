@@ -13,10 +13,6 @@ public class AjaxResult extends HashMap<String, Object> {
     public AjaxResult() {
     }
 
-    public AjaxResult(String message) {
-        put("message", message);
-    }
-
     public AjaxResult(String message, int code) {
         put("message", message);
         put("code", code);
