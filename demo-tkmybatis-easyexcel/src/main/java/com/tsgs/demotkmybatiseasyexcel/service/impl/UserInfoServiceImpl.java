@@ -62,6 +62,9 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (StringUtils.hasLength(userInfo.getUserName())) {
             criteria.andLike("userName", "%" + userInfo.getUserName() + "%");
         }
+        if (StringUtils.hasLength(userInfo.getUserNo())) {
+            criteria.andEqualTo("userNo", userInfo.getUserNo());
+        }
         if (StringUtils.hasLength(userInfo.getUserHomeAddress())) {
             criteria.andLike("userHomeAddress", "%" + userInfo.getUserHomeAddress() + "%");
         }
