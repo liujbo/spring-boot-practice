@@ -8,6 +8,10 @@ spring:
     url: jdbc:mysql://localhost:3306/practice?serverTimezone=UTC
     username: root
     password: Soldier@53
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
