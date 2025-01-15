@@ -9,6 +9,8 @@ import com.tsgs.demotkmybatiseasyexcel.util.AjaxResult;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +26,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Resource
     private UserInfoMapper userInfoMapper;
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
     /**
      * 用户信息导入
@@ -33,7 +37,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public void userInfoImport(MultipartFile file) {
         try (InputStream inputStream = file.getInputStream()) {
-            EasyExcel.read(inputStream, TbUserInfo.class, new UserInfoListener(userInfoMapper)).sheet().doRead();
+            EasyExcel.read(inputStream, TbUserInfo.class, new UserInfoListener(sqlSessionFactory)).sheet().doRead();
         } catch (IOException e) {
             log.error("解析异常", e);
         }

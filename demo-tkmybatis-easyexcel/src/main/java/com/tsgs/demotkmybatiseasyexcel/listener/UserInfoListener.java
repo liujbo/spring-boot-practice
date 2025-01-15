@@ -8,6 +8,9 @@ import com.tsgs.demotkmybatiseasyexcel.util.UserIdGenerator;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.ExecutorType;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +22,7 @@ public class UserInfoListener extends AnalysisEventListener<TbUserInfo> {
 
     @Getter
     @Setter
-    private UserInfoMapper userInfoMapper;
+    private SqlSessionFactory sqlSessionFactory;
 
     @Override
     public void invoke(TbUserInfo data, AnalysisContext context) {
@@ -29,12 +32,20 @@ public class UserInfoListener extends AnalysisEventListener<TbUserInfo> {
 
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
-        log.info("全部解析完成");
-        userInfoMapper.insertList(userInfoList);
-        log.info("=======导入成功");
+        log.info("全部解析完成，总条数：{}", userInfoList.size());
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH, false)) {
+            UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+            for (int i = 0; i < userInfoList.size(); i++) {
+                userInfoMapper.insert(userInfoList.get(i));
+                if (i % 10000 == 0 || i == userInfoList.size() - 1) {
+                    sqlSession.commit();
+                }
+            }
+        }
+        log.info("=======全部插入数据库完成");
     }
 
-    public UserInfoListener(UserInfoMapper userInfoMapper) {
-        this.userInfoMapper = userInfoMapper;
+    public UserInfoListener(SqlSessionFactory sqlSessionFactory) {
+        this.sqlSessionFactory = sqlSessionFactory;
     }
 }
