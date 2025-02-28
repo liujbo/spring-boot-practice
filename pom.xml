@@ -20,7 +20,7 @@
 
 		<spring.boot.version>3.3.3</spring.boot.version>
 		<mysql.version>8.0.33</mysql.version>
-		<hutool.version>5.8.32</hutool.version>
+		<hutool.version>5.8.36</hutool.version>
 		<lombok.version>1.18.30</lombok.version>
 		<fastjson2.version>2.0.52</fastjson2.version>
 
