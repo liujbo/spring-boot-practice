@@ -18,7 +18,7 @@
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 
-		<spring.boot.version>3.3.3</spring.boot.version>
+		<spring.boot.version>3.4.3</spring.boot.version>
 		<mysql.version>8.0.33</mysql.version>
 		<hutool.version>5.8.36</hutool.version>
 		<lombok.version>1.18.30</lombok.version>
@@ -34,9 +34,9 @@
 	<modules>
 		<module>demo-mybatis</module>
         <module>demo-mybatis-plus</module>
+		<module>demo-mybatis-plus-easyexcel</module>
 		<module>demo-tkmybatis</module>
         <module>demo-tkmybatis-easyexcel</module>
-        <module>demo-tkmybatis-easypoi</module>
 	</modules>
 
 	<dependencyManagement>
