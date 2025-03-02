@@ -1,0 +1,16 @@
+server:
+  port: 18005
+spring:
+  application:
+    name: demo-mybatis-plus-easypoi
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/practice?serverTimezone=Asia/Shanghai
+    username: root
+    password: Soldier@53
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss:SSS
