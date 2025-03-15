@@ -41,5 +41,7 @@ create table kyrj_non_basic_use_list
     start_use_date   datetime     default null comment '开始使用日期',
     stop_use_date    datetime     default null comment '停止使用日期',
     operate_state    varchar(4)   default null comment '操作来源标识',
+    create_time datetime default null comment '创建时间',
+    update_time datetime default null comment '更新时间',
     index name_version (software_name, software_version, usage_product) comment '软件名称和版本号和使用子产品英文名称联合索引'
 ) comment '开源软件非基础类使用清单' collate = utf8mb4_general_ci;
