@@ -2,9 +2,7 @@ package com.tsgs.demomybatispluseasyexcel.domain;
 
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -33,6 +31,7 @@ public class KyrjNonBasicUseListDomain {
     private String usageProduct;
 
     @ExcelIgnore
+    @TableField(fill = FieldFill.INSERT)
     private Date startUseDate;
 
     @ExcelIgnore
@@ -40,4 +39,12 @@ public class KyrjNonBasicUseListDomain {
 
     @ExcelIgnore
     private String operateState;
+
+    @ExcelIgnore
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @ExcelIgnore
+    @TableField(fill = FieldFill.UPDATE)
+    private Date updateTime;
 }
