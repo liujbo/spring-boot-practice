@@ -2,7 +2,7 @@ server:
   port: 18005
 spring:
   application:
-    name: demo-mybatis-plus-easypoi
+    name: demo-mybatis-plus-easyexcel
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/practice?serverTimezone=Asia/Shanghai
@@ -10,6 +10,7 @@ spring:
     password: Soldier@53
 mybatis-plus:
   configuration:
+    #    下划线转驼峰
     map-underscore-to-camel-case: true
 logging:
   pattern:
