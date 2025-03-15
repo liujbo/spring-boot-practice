@@ -60,12 +60,6 @@ public class UserInfo {
     private String userHomeAddress;
 
     /**
-     * 公司地址
-     */
-    @TableField("user_company_address")
-    private String userCompanyAddress;
-
-    /**
      * 插入时间
      */
     @TableField(fill = FieldFill.INSERT)

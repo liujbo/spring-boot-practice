@@ -1,6 +1,5 @@
 package com.tsgs.demomybatisplus.mapper;
 
-import com.alibaba.fastjson2.JSON;
 import com.tsgs.demomybatisplus.entity.UserInfo;
 import com.tsgs.demomybatisplus.enums.UserGenderEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -34,14 +33,10 @@ class UserInfoMapperTest {
     @Test
     public void testUpdate() {
         UserInfo userInfo = new UserInfo();
-        userInfo.setId(39L);
-        userInfo.setUserContact("电话号码");
-        userInfo.setUserHomeAddress("黑贝声天安门");
+        userInfo.setId(1338187L);
+        userInfo.setUserContact("1111电话号码");
+        userInfo.setUserHomeAddress("1111黑贝声天安门");
         int result = userInfoMapper.updateById(userInfo);
         Assert.isTrue(1 == result, "更新用户信息失败");
-        UserInfo userInfo1 = userInfoMapper.selectById(38);
-        log.info("更新用户信息后为：{}", JSON.toJSONString(userInfo1));
     }
-
-
 }
