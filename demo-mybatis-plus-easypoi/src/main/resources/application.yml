@@ -1,0 +1,21 @@
+server:
+  port: 18006
+spring:
+  application:
+    name: demo-mybatis-plus-easypoi
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/practice?serverTimezone=Asia/Shanghai
+    username: root
+    password: Soldier@53
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+mybatis-plus:
+  configuration:
+    #    下划线转驼峰
+    map-underscore-to-camel-case: true
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss:SSS
