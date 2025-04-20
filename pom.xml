@@ -30,6 +30,7 @@
         <easyexcel.version>4.0.3</easyexcel.version>
         <tk.mybatis.mapper.version>5.0.0</tk.mybatis.mapper.version>
         <mybatis-plus-generator.version>3.5.10.1</mybatis-plus-generator.version>
+        <easypoi.version>5.2.5</easypoi.version>
     </properties>
 
     <modules>
@@ -38,6 +39,7 @@
         <module>demo-mybatis-plus-easyexcel</module>
         <module>demo-tkmybatis</module>
         <module>demo-tkmybatis-easyexcel</module>
+        <module>demo-mybatis-plus-easypoi</module>
     </modules>
 
     <dependencyManagement>
@@ -48,6 +50,18 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- easypoi 解析Excel -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${easypoi.version}</version>
             </dependency>
 
             <dependency>
