@@ -114,7 +114,6 @@ public class ExcelParseService {
      * @param originalSheet 原始Excel第一个sheet
      * @param newSheet      新文件 sheet
      * @param headRowIndex  原始Excel第一个sheet的标题行号
-     * @param targetOrgCode 需要过滤的机构号
      */
     private void filterSheet(Sheet originalSheet, Sheet newSheet, int headRowIndex, Set<Integer> filteredRowIndices) {
         int rowNum = 0;

@@ -1,10 +1,12 @@
 package com.tsgs.demomybatisplus.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
+import lombok.Getter;
 
 /**
  * 性别枚举
  */
+@Getter
 public enum UserGenderEnum {
 
     MALE("M", "男"),
