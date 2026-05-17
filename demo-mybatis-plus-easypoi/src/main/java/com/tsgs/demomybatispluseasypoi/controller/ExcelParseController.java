@@ -2,10 +2,7 @@ package com.tsgs.demomybatispluseasypoi.controller;
 
 import com.tsgs.demomybatispluseasypoi.service.ExcelParseService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Set;
@@ -38,5 +35,11 @@ public class ExcelParseController {
             log.info("解析Excel异常：{}", e.getMessage());
             return e.getMessage();
         }
+    }
+
+    @GetMapping("/hello")
+    public String hello(@RequestParam("name") String name) {
+        log.info("传入参数name={}", name);
+        return "hello " + name;
     }
 }

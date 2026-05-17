@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Data
 @Builder
-public class UserInfo {
+public class UserInfo {    
 
     /**
      * 自增主键ID

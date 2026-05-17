@@ -34,6 +34,7 @@
     </properties>
 
     <modules>
+        <module>demo-excel</module>
         <module>demo-mybatis</module>
         <module>demo-mybatis-plus</module>
         <module>demo-mybatis-plus-easyexcel</module>
